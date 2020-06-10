@@ -5,7 +5,9 @@ Manage application settings.
 ## Installation
 
 Install via [Composer](https://getcomposer.org):
-`composer require bretrzaun/settings`
+```
+composer require bretrzaun/settings
+```
 
 ## Usage
 
