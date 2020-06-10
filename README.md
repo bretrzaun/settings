@@ -80,11 +80,11 @@ $settings->getByYearAndKey(2019, 2);
 -> $second2019
 ```
 
-To get a certain key for a year - with falling going back to the last existing year:
+To get a certain key for a year - with going back to the last existing year:
 
 ```
 $settings->getLastByYearAndKey(2021, 1);
 
 -> $first2020
 ```
-Note: Since there is no entry for the year 2021 so it goes back until it finds a year with the requested key.
+Note: Since there is no entry for the year 2021 it goes back until it finds a year with the requested key.
