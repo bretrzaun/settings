@@ -4,7 +4,7 @@ namespace BretRZaun\Settings;
 use BretRZaun\Settings\Value\ValueInterface;
 use BretRZaun\Settings\Value\SimpleValue;
 
-class Settings implements SettingsInterface, \IteratorAggregate, \JsonSerializable
+class Settings implements \IteratorAggregate, \JsonSerializable, SettingsInterface
 {
     protected $values = [];
     protected $renderer;
