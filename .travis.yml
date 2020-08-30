@@ -6,7 +6,7 @@ php:
 install:
   composer install
 
-before_script:
+before_install:
   - pecl -q install mongo
   - phpenv config-add myconfig.ini
 script: vendor/bin/phpunit
