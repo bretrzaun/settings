@@ -1,4 +1,5 @@
 # Settings
+[![Build Status](https://travis-ci.org/bretrzaun/settings.svg?branch=master)](https://travis-ci.org/bretrzaun/settings)
 
 Manage application settings.
 
