@@ -1,4 +1,7 @@
 # Settings
+[![Latest Stable Version](https://poser.pugx.org/bretrzaun/settings/v)](//packagist.org/packages/bretrzaun/settings)
+[![Build Status](https://travis-ci.org/bretrzaun/settings.svg?branch=master)](https://travis-ci.org/bretrzaun/settings)
+[![License](https://poser.pugx.org/bretrzaun/settings/license)](//packagist.org/packages/bretrzaun/settings)
 
 Manage application settings.
 
