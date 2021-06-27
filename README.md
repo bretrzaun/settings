@@ -54,17 +54,17 @@ Loads the settings into an instance of the given settings class.
 
 ## Advanced usage
 
-### Anual settings
+### Annual settings
 
-Settings which have different values per year can be managed with the `AnualSettings` class and the `AnualValue` class.
+Settings which have different values per year can be managed with the `AnnualSettings` class and the `AnnualValue` class.
 
 ```
-$first2019 = new AnualValue(1, 'First 2019', 2019);
-$second2019 = new AnualValue(2, 'Second 2019', 2019);
-$first2020 = new AnualValue(1, 'First 2020', 2020);
-$second2020 = new AnualValue(2, 'Second 2020', 2020);
+$first2019 = new AnnualValue(1, 'First 2019', 2019);
+$second2019 = new AnnualValue(2, 'Second 2019', 2019);
+$first2020 = new AnnualValue(1, 'First 2020', 2020);
+$second2020 = new AnnualValue(2, 'Second 2020', 2020);
 
-$settings = new AnualSettings([$first2019, $second2019, $first2020, $second2020]);
+$settings = new AnnualSettings([$first2019, $second2019, $first2020, $second2020]);
 ```
 
 To retrieve all settings for 2019 use:

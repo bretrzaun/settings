@@ -1,7 +1,7 @@
 <?php
 namespace BretRZaun\Settings\Value;
 
-class AnualValue extends SimpleValue
+class AnnualValue extends SimpleValue
 {
     private $year;
 

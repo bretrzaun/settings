@@ -5,8 +5,8 @@ use PHPUnit\Framework\TestCase;
 use BretRZaun\Settings\Storage\MongoDbStorage;
 use BretRZaun\Settings\Value\SimpleValue;
 use BretRZaun\Settings\Settings;
-use BretRZaun\Settings\Value\AnualValue;
-use BretRZaun\Settings\AnualSettings;
+use BretRZaun\Settings\Value\AnnualValue;
+use BretRZaun\Settings\AnnualSettings;
 
 class MongoDbStorageTests extends TestCase
 {
@@ -30,20 +30,20 @@ class MongoDbStorageTests extends TestCase
         $this->assertEquals('First', $settings[1]->getValue());
     }
 
-    public function testLoadAnual(): void
+    public function testLoadAnnual(): void
     {
         $collection = $this->createMock(\MongoDB\Collection::class);
         $collection->expects($this->once())
             ->method('find')
-            ->with(['class' => AnualSettings::class])
+            ->with(['class' => AnnualSettings::class])
             ->willReturn([
-                ['key' => 1, 'value' => 'First', 'year' => 2019, 'class' => AnualSettings::class],
-                ['key' => 2, 'value' => 'Second', 'year' => 2020, 'class' => AnualSettings::class]
+                ['key' => 1, 'value' => 'First', 'year' => 2019, 'class' => AnnualSettings::class],
+                ['key' => 2, 'value' => 'Second', 'year' => 2020, 'class' => AnnualSettings::class]
             ])
             ;
 
         $storage = new MongoDbStorage($collection);
-        $settings = $storage->load(AnualSettings::class);
+        $settings = $storage->load(AnnualSettings::class);
 
         $this->assertCount(2, $settings);
         $this->assertEquals(1, $settings->getByYearAndKey(2019, 1)->getKey());
@@ -70,18 +70,18 @@ class MongoDbStorageTests extends TestCase
         $storage->save($settings);
     }
 
-    public function testSaveAnual(): void
+    public function testSaveAnnual(): void
     {
-        $first = new AnualValue(1, 'First', 2019);
-        $second = new AnualValue(2, 'Second', 2020);
-        $settings = new AnualSettings([$first, $second]);
+        $first = new AnnualValue(1, 'First', 2019);
+        $second = new AnnualValue(2, 'Second', 2020);
+        $settings = new AnnualSettings([$first, $second]);
 
         $collection = $this->createMock(\MongoDB\Collection::class);
         $collection->expects($this->once())
             ->method('insertMany')
             ->with([
-                ['key' => 1, 'value' => 'First', 'year' => 2019, 'class' => AnualSettings::class],
-                ['key' => 2, 'value' => 'Second', 'year' => 2020, 'class' => AnualSettings::class]
+                ['key' => 1, 'value' => 'First', 'year' => 2019, 'class' => AnnualSettings::class],
+                ['key' => 2, 'value' => 'Second', 'year' => 2020, 'class' => AnnualSettings::class]
             ])
             ;
 

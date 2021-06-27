@@ -1,20 +1,20 @@
 <?php
 namespace BretRZaun\Settings;
 
-use BretRZaun\Settings\Value\AnualValue;
+use BretRZaun\Settings\Value\AnnualValue;
 use BretRZaun\Settings\Value\ValueInterface;
 
-class AnualSettings extends Settings
+class AnnualSettings extends Settings
 {
     public function getValueClass(): string
     {
-        return AnualValue::class;
+        return AnnualValue::class;
     }
 
     public function add(ValueInterface $value)
     {
-        if (!$value instanceOf AnualValue) {
-            throw new \InvalidArgumentException('Only instances of AnualValue allowed here.');
+        if (!$value instanceOf AnnualValue) {
+            throw new \InvalidArgumentException('Only instances of AnnualValue allowed here.');
         }
         if ($this->renderer) {
             $value->setRenderer($this->renderer);
@@ -22,7 +22,7 @@ class AnualSettings extends Settings
         $this->values[] = $value;
     }
 
-    public function getByYearAndKey(int $year, int $key): ?AnualValue
+    public function getByYearAndKey(int $year, int $key): ?AnnualValue
     {
         foreach($this->values as $value) {
             if ($value->getKey() == $key && $value->getYear() === $year) {
@@ -54,7 +54,7 @@ class AnualSettings extends Settings
         return $result;
     }
 
-    public function getLastByYearAndKey(int $year, int $key): ?AnualValue
+    public function getLastByYearAndKey(int $year, int $key): ?AnnualValue
     {
         $values = $this->findByKey($key);
         ksort($values);

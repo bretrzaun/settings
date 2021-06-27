@@ -5,8 +5,8 @@ use PHPUnit\Framework\TestCase;
 use BretRZaun\Settings\Storage\FileStorage;
 use BretRZaun\Settings\Value\SimpleValue;
 use BretRZaun\Settings\Settings;
-use BretRZaun\Settings\Value\AnualValue;
-use BretRZaun\Settings\AnualSettings;
+use BretRZaun\Settings\Value\AnnualValue;
+use BretRZaun\Settings\AnnualSettings;
 
 class FileStorageTests extends TestCase
 {
@@ -20,14 +20,14 @@ class FileStorageTests extends TestCase
         $this->assertEquals('First', $settings[1]->getValue());
     }
 
-    public function testLoadAnual(): void
+    public function testLoadAnnual(): void
     {
-        $storage = new FileStorage(__DIR__.'/../fixtures/anualsettings01.json');
-        $settings = $storage->load(AnualSettings::class);
+        $storage = new FileStorage(__DIR__.'/../fixtures/annualsettings01.json');
+        $settings = $storage->load(AnnualSettings::class);
 
-        $this->assertInstanceOf(AnualSettings::class, $settings);
+        $this->assertInstanceOf(AnnualSettings::class, $settings);
         $this->assertCount(2, $settings);
-        $this->assertInstanceOf(AnualValue::class, $settings->getByYearAndKey(2019, 1));
+        $this->assertInstanceOf(AnnualValue::class, $settings->getByYearAndKey(2019, 1));
         $this->assertEquals(1, $settings->getByYearAndKey(2019, 1)->getKey());
         $this->assertEquals('Second', $settings->getByYearAndKey(2020, 2)->getValue());
     }
